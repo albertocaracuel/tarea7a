@@ -105,7 +105,7 @@ public class Lectura {
 
             int dias = (int) ((fechaFinal.getTime() - fechaInicial.getTime()) / 86400000);
 
-            if (dias >= 7300) {
+            if (dias >= 7300 && o.getFechaDeCese().equals("")) {
                 listaNueva.add(o);
             }
 
@@ -117,7 +117,7 @@ public class Lectura {
         try (ObjectOutputStream escritura = new ObjectOutputStream(fw)) {
             for (POJO o : listaNueva) {
 
-                escritura.writeObject(o.toString() + "\t");
+                escritura.writeObject(o.toString() + "\n");
 
             }
         }
