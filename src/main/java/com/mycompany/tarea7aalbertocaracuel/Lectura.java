@@ -56,7 +56,8 @@ public class Lectura {
 
                     n.setCoordinador(tokens[8].replace("\"", ""));
                     n.setDni(tokens[2].replace("\"", ""));
-                    n.setEmpleado(tokens[0].replace("\"", ""));
+                    n.setEmpleadoApellido(tokens[0].replace("\"", ""));
+                    n.setEmpleadoNombre(tokens[1].replace("\"", ""));
                     n.setEvaluador(tokens[7].replace("\"", ""));
                     n.setFechaDeCese(tokens[5].replace("\"", ""));
                     n.setFechaDeToma(tokens[4].replace("\"", ""));
@@ -70,7 +71,7 @@ public class Lectura {
             for (POJO o : lista) {
                 System.out.println(o);
             }
-
+            //saber cuantos informaticos hay
             int contadorMaestros = 0;
 
             for (POJO o : lista) {
@@ -80,10 +81,25 @@ public class Lectura {
 
             }
             System.out.println("Hay " + contadorMaestros + " de informaticos");
-
+            //saber si hay biologos coordinadores
             for (POJO o : lista) {
                 if (o.getPuesto().equals("Biología y Geología P.E.S.") && o.getCoordinador().equals("Sí")) {
-                    System.out.println("El profesor " + o.getEmpleado() + " da bilogia y es coordinador");
+                    System.out.println("El profesor " + o.getEmpleadoNombre() + o.getEmpleadoApellido() + " da bilogia y es coordinador");
+                }
+            }
+            //saber cuanta gente hay con dni que acabe en N
+            ArrayList<String> listanueva2= new ArrayList<>();
+            for (POJO o : lista) {
+            char[] aCaracteres = o.getDni().toCharArray();
+            if(aCaracteres[8]=='N'){
+                listanueva2.add(o.getEmpleadoApellido());
+                
+            }
+            }
+            //saber si hay john
+            for (POJO o : lista) {
+                if (o.getEmpleadoNombre().equals("John")) {
+                    System.out.println("Hay un profesor que se llama john su dni es " + o.getDni());
                 }
             }
 

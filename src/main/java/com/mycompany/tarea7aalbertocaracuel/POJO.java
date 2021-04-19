@@ -10,7 +10,8 @@ package com.mycompany.tarea7aalbertocaracuel;
  * @author alber
  */
 public class POJO {
-    private String empleado;
+    private String empleadoApellido;
+    private String empleadoNombre;
     private String dni;
     private String puesto;
     private String fechaDeToma;
@@ -21,11 +22,10 @@ public class POJO {
 
     public POJO() {
     }
-    
-    
 
-    public POJO(String empleado, String dni, String puesto, String fechaDeToma, String fechaDeCese, String telefono, String evaluador, String coordinador) {
-        this.empleado = empleado;
+    public POJO(String empleadoApellido, String empleadoNombre, String dni, String puesto, String fechaDeToma, String fechaDeCese, String telefono, String evaluador, String coordinador) {
+        this.empleadoApellido = empleadoApellido;
+        this.empleadoNombre = empleadoNombre;
         this.dni = dni;
         this.puesto = puesto;
         this.fechaDeToma = fechaDeToma;
@@ -35,12 +35,20 @@ public class POJO {
         this.coordinador = coordinador;
     }
 
-    public String getEmpleado() {
-        return empleado;
+    public String getEmpleadoApellido() {
+        return empleadoApellido;
     }
 
-    public void setEmpleado(String empleado) {
-        this.empleado = empleado;
+    public void setEmpleadoApellido(String empleadoApellido) {
+        this.empleadoApellido = empleadoApellido;
+    }
+
+    public String getEmpleadoNombre() {
+        return empleadoNombre;
+    }
+
+    public void setEmpleadoNombre(String empleadoNombre) {
+        this.empleadoNombre = empleadoNombre;
     }
 
     public String getDni() {
@@ -101,8 +109,11 @@ public class POJO {
 
     @Override
     public String toString() {
-        return "POJO{" + "" + empleado + "," + dni + ", " + puesto + ", " + fechaDeToma + ", " + fechaDeCese + ", " + telefono + ", " + evaluador + "," + coordinador + '}';
+        return "POJO{" + "" + empleadoApellido + ", " + empleadoNombre + ", " + dni + ", " + puesto + ", " + fechaDeToma + ", " + fechaDeCese + ", " + telefono + ", " + evaluador + ", " + coordinador + '}';
     }
     
+    
+
+   
     
 }
