@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -84,17 +85,22 @@ public class Lectura {
             //saber si hay biologos coordinadores
             for (POJO o : lista) {
                 if (o.getPuesto().equals("Biología y Geología P.E.S.") && o.getCoordinador().equals("Sí")) {
-                    System.out.println("El profesor " + o.getEmpleadoNombre() + o.getEmpleadoApellido() + " da bilogia y es coordinador");
+                    System.out.println("El profesor " + o.getEmpleadoNombre() + " " + o.getEmpleadoApellido() + " da bilogia y es coordinador");
                 }
             }
             //saber cuanta gente hay con dni que acabe en N
-            ArrayList<String> listanueva2= new ArrayList<>();
+            ArrayList<String> listanueva2 = new ArrayList<>();
             for (POJO o : lista) {
-            char[] aCaracteres = o.getDni().toCharArray();
-            if(aCaracteres[8]=='N'){
-                listanueva2.add(o.getEmpleadoApellido());
-                
+                char[] aCaracteres = o.getDni().toCharArray();
+                if (aCaracteres[8] == 'N') {
+                    listanueva2.add(o.getEmpleadoApellido());
+
+                }
             }
+            //ordenar lista e imprimirla
+             Collections.sort(listanueva2);
+             for (String o : listanueva2) {
+                System.out.println(o);
             }
             //saber si hay john
             for (POJO o : lista) {
